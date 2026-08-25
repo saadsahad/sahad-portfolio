@@ -1,4 +1,5 @@
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sahad Salim</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -83,6 +84,26 @@
   .brand .dot{ width:32px;height:32px;border-radius:50%; overflow:hidden; }
   .brand .dot img{ width:100%; height:100%; object-fit:cover; }
   nav.mainnav{ display:flex; align-items:center; gap:28px; }
+
+  .nav-toggle{
+    display:none; flex-direction:column; justify-content:center; gap:5px;
+    width:36px; height:36px; border:none; background:none; cursor:pointer; padding:0;
+  }
+  .nav-toggle span{ display:block; width:100%; height:2px; background:var(--ink); transition:transform .25s ease, opacity .25s ease; }
+  .nav-toggle.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .nav-toggle.open span:nth-child(2){ opacity:0; }
+  .nav-toggle.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu{
+    display:none; flex-direction:column; gap:0; position:fixed; top:0; right:0; z-index:59;
+    width:78%; max-width:320px; height:100vh; padding:96px 32px 32px;
+    background:rgba(255,255,255,0.98); backdrop-filter:blur(20px);
+    box-shadow:-16px 0 40px rgba(17,17,17,0.12);
+    transform:translateX(100%); transition:transform .35s cubic-bezier(.22,.68,0,1);
+  }
+  .mobile-menu.open{ transform:translateX(0); }
+  .mobile-menu a{ font-size:20px; font-weight:500; color:var(--ink); padding:16px 0; border-bottom:1px solid var(--border); }
+  .mobile-menu a.btn{ margin-top:24px; text-align:center; border-bottom:none; }
   nav.mainnav a{ font-size:15px; font-weight:500; color:var(--ink); }
   .btn{ display:inline-flex; align-items:center; gap:8px; font-size:16px; font-weight:500; padding:14px 24px; border-radius:var(--r-pill); }
   .btn.solid{ background:var(--near-black); color:#fff; box-shadow:var(--shadow-dark); }
@@ -349,6 +370,9 @@
     .wrap{ padding:0 20px; }
     header.site{ padding:16px 20px; }
     nav.mainnav{ display:none; }
+    header.site .btn.solid{ display:none; }
+    .nav-toggle{ display:flex; }
+    .mobile-menu{ display:flex; }
     section{ padding:100px 0; }
     .about-grid{ grid-template-columns:1fr; }
     .about-photo{ width:150px; height:180px; }
@@ -372,7 +396,17 @@
     <a href="#resume">Resume</a>
   </nav>
   <a class="btn solid" style="padding:11px 20px; font-size:15px;" href="mailto:mohammedsahad4646@gmail.com">Say hello</a>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </header>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#work">Work</a>
+  <a href="#creative">Creative</a>
+  <a href="#about">About</a>
+  <a href="#resume">Resume</a>
+  <a class="btn purple" href="mailto:mohammedsahad4646@gmail.com">Say hello</a>
+</div>
 
 <section class="hero">
   <div class="hero-3d-bg"><canvas></canvas></div>
@@ -785,6 +819,23 @@
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
     targets.forEach(function(el){ io.observe(el); });
+  })();
+
+  (function(){
+    var toggle = document.getElementById('nav-toggle');
+    var menu = document.getElementById('mobile-menu');
+    if(!toggle || !menu) return;
+    function close(){
+      toggle.classList.remove('open');
+      menu.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+    toggle.addEventListener('click', function(){
+      var open = menu.classList.toggle('open');
+      toggle.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', close); });
   })();
 
   var caseOverlay = document.getElementById('case-overlay');
