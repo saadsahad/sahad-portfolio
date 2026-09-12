@@ -306,6 +306,22 @@
   .explore-tile .body-m{ margin:0; }
   .explore-arrow{ margin-top:var(--sp-4); font-size:15px; color:var(--purple); font-weight:500; }
 
+  .also-tile{
+    display:block; text-decoration:none; color:inherit; padding:var(--sp-6);
+    background:rgba(255,255,255,0.5); backdrop-filter:blur(18px) saturate(160%);
+    -webkit-backdrop-filter:blur(18px) saturate(160%); border:1px solid rgba(255,255,255,0.7);
+    box-shadow:var(--shadow-sm); border-radius:var(--r-lg);
+    transition:transform .3s cubic-bezier(.22,.68,0,1), box-shadow .3s cubic-bezier(.22,.68,0,1), border-color .3s ease;
+  }
+  .also-tile:hover{
+    transform:translateY(-4px); box-shadow:0 20px 40px rgba(17,17,17,0.12);
+    border-color:rgba(116,48,247,0.35);
+  }
+  .also-tile-title{ font-size:20px; font-weight:500; margin-top:6px; }
+  .also-tile .tag{ font-size:12px; color:var(--secondary); }
+  .also-tile .body-m{ margin-top:var(--sp-3); max-width:520px; }
+  .also-tile-link{ margin-top:var(--sp-4); font-size:15px; color:var(--purple); font-weight:500; }
+
   #creative-body{ display:none; margin-top:var(--sp-7); }
   #creative-body.open{ display:block; }
 
@@ -438,6 +454,23 @@
       <p class="body-m">Five products, one per priority industry — each pairing product design with a real generative AI system, not a brand exercise.</p>
     </div>
     <div class="work-grid" id="work-grid"></div>
+  </div>
+</section>
+
+<section id="also-building">
+  <div class="wrap">
+    <div class="rv sec-head">
+      <h2>Also Building</h2>
+      <p class="body-m">Outside of Nativize, a project I am co-founding, already live.</p>
+    </div>
+    <a class="rv also-tile" href="https://quant-suggest.vercel.app/" target="_blank" rel="noopener">
+      <div class="also-tile-body">
+        <div class="tag">Trading &amp; Quant Tools</div>
+        <div class="also-tile-title">Quant Suggest</div>
+        <p class="body-m">Describe a trading setup in plain English, or paste Pine Script or MQL5, and get back a certifiable LEAN strategy, backtested and variant swept before you deploy anything.</p>
+        <div class="also-tile-link">Visit quant-suggest.vercel.app &rarr;</div>
+      </div>
+    </a>
   </div>
 </section>
 
