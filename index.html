@@ -307,20 +307,14 @@
   .explore-arrow{ margin-top:var(--sp-4); font-size:15px; color:var(--purple); font-weight:500; }
 
   .also-tile{
-    display:block; text-decoration:none; color:inherit; padding:var(--sp-6);
+    display:block; padding:var(--sp-6);
     background:rgba(255,255,255,0.5); backdrop-filter:blur(18px) saturate(160%);
     -webkit-backdrop-filter:blur(18px) saturate(160%); border:1px solid rgba(255,255,255,0.7);
     box-shadow:var(--shadow-sm); border-radius:var(--r-lg);
-    transition:transform .3s cubic-bezier(.22,.68,0,1), box-shadow .3s cubic-bezier(.22,.68,0,1), border-color .3s ease;
-  }
-  .also-tile:hover{
-    transform:translateY(-4px); box-shadow:0 20px 40px rgba(17,17,17,0.12);
-    border-color:rgba(116,48,247,0.35);
   }
   .also-tile-title{ font-size:20px; font-weight:500; margin-top:6px; }
   .also-tile .tag{ font-size:12px; color:var(--secondary); }
   .also-tile .body-m{ margin-top:var(--sp-3); max-width:520px; }
-  .also-tile-link{ margin-top:var(--sp-4); font-size:15px; color:var(--purple); font-weight:500; }
 
   #creative-body{ display:none; margin-top:var(--sp-7); }
   #creative-body.open{ display:block; }
@@ -461,16 +455,15 @@
   <div class="wrap">
     <div class="rv sec-head">
       <h2>Also Building</h2>
-      <p class="body-m">Outside of Nativize, a project I am co-founding, already live.</p>
+      <p class="body-m">Outside of Nativize, a side project in personal time.</p>
     </div>
-    <a class="rv also-tile" href="https://quant-suggest.vercel.app/" target="_blank" rel="noopener">
+    <div class="rv also-tile">
       <div class="also-tile-body">
         <div class="tag">Trading &amp; Quant Tools</div>
         <div class="also-tile-title">Quant Suggest</div>
-        <p class="body-m">Describe a trading setup in plain English, or paste Pine Script or MQL5, and get back a certifiable LEAN strategy, backtested and variant swept before you deploy anything.</p>
-        <div class="also-tile-link">Visit quant-suggest.vercel.app &rarr;</div>
+        <p class="body-m">A tool for building, backtesting, and analyzing trading strategies from a plain English description or existing code, with robustness testing and a strategy journal to track what actually holds up over time.</p>
       </div>
-    </a>
+    </div>
   </div>
 </section>
 
@@ -514,9 +507,9 @@
           <div class="career-co">Nativize</div>
           <div class="career-when">Feb 2026 — Present · Remote</div>
           <ul class="career-bullets">
-            <li><b>Building end to end:</b> an AI-native solution for creative native advertorials, integrated with campaign platforms like Taboola.</li>
+            <li><b>Building end to end:</b> an AI-native solution for creative native advertorials, working AI natively across the stack.</li>
             <li><b>Creative automation:</b> bringing photorealistic AI image and video generation into the pipeline.</li>
-            <li><b>Right now:</b> owning product development after a successful v1 launch.</li>
+            <li><b>Right now:</b> owning product development as it takes shape, from research through to what ships.</li>
           </ul>
         </div>
       </div>
